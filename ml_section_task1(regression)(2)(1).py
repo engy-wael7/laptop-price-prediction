@@ -34,7 +34,7 @@ low, high = q1 - 1.5 * iqr, q3 + 1.5 * iqr
 outliers = df[(df[target] < low) | (df[target] > high)]
 print(f"Bounds: {low:.0f} to {high:.0f}")
 print(f"Outliers: {len(outliers)} rows ({len(outliers)/len(df)*100:.1f}%)")
-display(outliers.sort_values(target, ascending=False).head(10))
+print(outliers.sort_values(target, ascending=False).head(10))
 
 for c in df.columns:
     print(f"\n--- {c}: {df[c].nunique()} unique ---")
@@ -365,13 +365,13 @@ print(f"R2 Score: {r2_score(y_test, y_pred):.4f}")
 print(f"MAE: {mean_absolute_error(y_test, y_pred):.4f}")
 print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_pred)):.4f}")
 
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x=y_test, y=y_pred, alpha=0.7)
-plt.xlabel("Actual Prices")
-plt.ylabel("Predicted Prices")
-plt.title(f"Actual vs Predicted Prices ({best_model_name})")
-plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
-plt.show()
+# plt.figure(figsize=(8, 6))
+# sns.scatterplot(x=y_test, y=y_pred, alpha=0.7)
+# plt.xlabel("Actual Prices")
+# plt.ylabel("Predicted Prices")
+# plt.title(f"Actual vs Predicted Prices ({best_model_name})")
+# plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
+# plt.show()
 
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
@@ -458,10 +458,10 @@ print(f"R2 Score: {r2_score(y_test, y_pred_voting):.4f}")
 print(f"MAE: {mean_absolute_error(y_test, y_pred_voting):.4f}")
 print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_pred_voting)):.4f}")
 
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x=y_test, y=y_pred_voting, alpha=0.7)
-plt.xlabel("Actual Prices")
-plt.ylabel("Predicted Prices")
-plt.title("Actual vs Predicted Prices (Voting Regressor)")
-plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
-plt.show()
+# plt.figure(figsize=(8, 6))
+# sns.scatterplot(x=y_test, y=y_pred_voting, alpha=0.7)
+# plt.xlabel("Actual Prices")
+# plt.ylabel("Predicted Prices")
+# plt.title("Actual vs Predicted Prices (Voting Regressor)")
+# plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
+# plt.show()
